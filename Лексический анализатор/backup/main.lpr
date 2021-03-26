@@ -99,17 +99,17 @@ begin
                 halt
               end;
           end;
-        end;
-        'A': begin
-             case cutTerm of
-              'a'..'Z', 'A'..'Z', '0'..'9':begin
+          end;
+          'A': begin
+            case cutTerm of
+                'a'..'Z', 'A'..'Z', '0'..'9':begin
                     curState:='A';
                     curLex:=curLex + curTerm;
                 end;
-              '': begin
+                '': begin
                    curState:='I';
                 end;
-              ';','+','-','/','\','(',')','[',']','=','*','{','}': begin
+                ';','+','-','/','\','(',')','[',']','=','*','{','}': begin
                   curState:='S';
                   if k <> 0 then write(outFile, 'K', k) else begin
                       k:=idIndex(curLex);
@@ -122,7 +122,7 @@ begin
                       write(outFile, curTerm);
                       curLex:='';
                   end;
-              '(': begin
+                '(': begin
                   curState:='S';
                   k:=funIndex(curLex);
                   if k <> 0 then write(outFile, 'F', k) else begin
@@ -131,73 +131,13 @@ begin
                       write(outFile, 'F', funCount);
                       end;
                   end;
-              ':': begin
+                ':': begin
                     curState:='C';
                     k:=kwIndex(curLex);
                     if k <> 0 then write(outFile, 'K', k) else begin
-                        k:=idIndex(curLex);
-                        if k <> 0 then begin
-                            inc(idCount);
-                            idTable[idCount]:=curLex;
-                            write(outFile, 'I', idCount)
-                        end else write(outFile, 'I', k)
-                    end;
-                    curLex:='';
+                    end
                 end;
-              '<', '>': begin
-                  curState:='D';
-                  k:=kwIndex(curLex);
-                  if k <> 0 then write(outFile, 'K', k) else begin
-                      k:=idIndex(curLex);
-                      if k = 0 then begin
-                          inc(idCount);
-                          idTable[idCount]:=curLex
-                          write(outFile, 'I', idCount)
-                          end else write(outFile, 'I', k)
-                      end;
-                  curLex:='';
-                  prevTerm:=curTerm;
-                end;
-              '!': begin
-                  curStateL:='E';
-                  k:=kwIndex(curLex);
-                  if k <> 0 then write(outFile, 'K', k) else begin
-                     k:=idIndex(curLex);
-                     if k = 0 then begin
-                        inc(idCount);
-                        idTable[idCount]:=curLex
-                        write(outFile, 'I', idCount)
-                        end else write(outFile, 'I', k)
-                  end;
-                  curLex:='';
-                end;
-              '|': begin
-                  prevComState:=curState;
-                  curState:='F';
-                end;
-              else begin
-                  write('Error');
-                  end;
-             end;
-        end;
-        'B': begin
-            case curTerm of
-                '0'..'9': begin
-                  curState:='B';
-                  curLex:=curLex + curTerm
-                end;
-                '': begin
-                  curState:='S';
-                  inc(consCount);
-                  val(curLex, k, i);
-                  consTable[consCount]:=k;
-                  write(outFile, 'C', consCount);
-                end;
-                ';','+','-','/','\','(',')','[',']','=','*','{','}': begin
-
-
-                end;
-            end;
+          end;
         end;
     end;
   end;

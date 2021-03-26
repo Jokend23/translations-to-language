@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/bin/fpc" Date="1497114828"/>
+  <Params Value=" -MObjFPC -Scghi -Cg -O1 -g -gl -l -vewnhibq &quot;-Fi/home/user/Desktop/translation-korobko-483/Лексический анализатор/lib/x86_64-linux&quot; &quot;-Fu/home/user/Desktop/translation-korobko-483/Лексический анализатор/&quot; &quot;-FU/home/user/Desktop/translation-korobko-483/Лексический анализатор/lib/x86_64-linux/&quot; main.lpr"/>
+</CONFIG>

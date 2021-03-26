@@ -181,23 +181,7 @@ begin
              end;
         end;
         'B': begin
-            case curTerm of
-                '0'..'9': begin
-                  curState:='B';
-                  curLex:=curLex + curTerm
-                end;
-                '': begin
-                  curState:='S';
-                  inc(consCount);
-                  val(curLex, k, i);
-                  consTable[consCount]:=k;
-                  write(outFile, 'C', consCount);
-                end;
-                ';','+','-','/','\','(',')','[',']','=','*','{','}': begin
-
-
-                end;
-            end;
+            ...
         end;
     end;
   end;
