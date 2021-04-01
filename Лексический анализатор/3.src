@@ -1,0 +1,14 @@
+INPUT n;
+i:=0;
+WHILE i<n DO {
+ INPUT A[i];
+ i:=i+1
+};
+s:=0; 
+i:=0;
+WHILE i<n DO {
+    s:=s+A[i];
+    i:=i+1
+};
+OUTPUT s;
+HALT;

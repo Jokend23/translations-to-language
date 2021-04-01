@@ -1,0 +1,5 @@
+INPUT n;
+OUTPUT fact(n);
+HALT;
+FUNC fac|*pljkj*|t(k);
+IF k=1 THEN RET 1 ELSE RET k*fact(k-1);

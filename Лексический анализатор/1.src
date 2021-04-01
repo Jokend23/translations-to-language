@@ -1,0 +1,9 @@
+INPUT n;
+s:=0; 
+i:|*jhghjgg*|=1;
+WHILE i<=n DO {
+    s:=s+i;  |*...*|
+    i:=i+1
+};
+OUTPUT s;
+HALT;

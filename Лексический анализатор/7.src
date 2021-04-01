@@ -1,0 +1,5 @@
+INPUT n;
+INPUT m;
+IF n<m THEN c:=n+m ELSE c:=n-m;
+OUTPUT c;
+HALT;
