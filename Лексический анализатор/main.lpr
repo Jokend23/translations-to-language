@@ -1,7 +1,7 @@
 program main;
 const
   kwcount=10;
-  kwTable:array[1..kwcount] of string[7]=('UNPUT', 'OUTPUT', 'IF', 'THEN',
+  kwTable:array[1..kwcount] of string[7]=('INPUT', 'OUTPUT', 'IF', 'THEN',
       'ELSE', 'WHILE', 'DO', 'FUNC', 'RET', 'HALT'); {ключевые слова}
   var
     idCount, consCount, funCount: integer; {число индентификатора, константы,
@@ -19,30 +19,31 @@ const
       i:integer;
     begin
       kwIndex:=0;
-      for i:=0 to kwCount do if lex=kwTable[i] then begin
+      for i:=1 to kwCount do if lex=kwTable[i] then begin
           kwIndex:=i;
+          break;
         end;
       end;
 
-      function idIndex(lex: string):integer;
+    function idIndex(lex: string): integer;
       var
         i:integer;
       begin
         idIndex:=0;
-        for i:=0 to idCount do if lex=idtable[i] then begin
+        for i:=1 to idCount do if lex=idtable[i] then begin
             idIndex:=i;
-            break
+            break;
         end;
       end;
 
-      function funIndex(lex: string): integer;
+    function funIndex(lex: string): integer;
       var
         i: integer;
       begin
         funIndex:=0;
-        for i:=0 to funCount do if lex=funTable[i] then begin
+        for i:=1 to funCount do if lex=funTable[i] then begin
             funIndex:=i;
-            break
+            break;
         end;
       end;
 
@@ -112,6 +113,7 @@ begin
                 end;
               ';','+','-','/','\',')','[',']','=','*','{','}': begin
                   curState:='S';
+                  k:=idIndex(curLex);
                   if k<>0 then write(outFile, 'K', k) else begin
                       k:=idIndex(curLex);
                       if k = 0 then begin
@@ -137,7 +139,7 @@ begin
                     k:=kwIndex(curLex);
                     if k <> 0 then write(outFile, 'K', k) else begin
                         k:=idIndex(curLex);
-                        if k <> 0 then begin
+                        if k = 0 then begin
                             inc(idCount);
                             idTable[idCount]:=curLex;
                             write(outFile, 'I', idCount)

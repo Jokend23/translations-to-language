@@ -8,10 +8,10 @@
         <Filename Value="main.lpr"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="185"/>
-        <CursorPos X="26" Y="411"/>
-        <FoldState Value=" T0ia.3491821C pj3l0a4C11212221]8]A'"/>
-        <UsageCount Value="22"/>
+        <TopLine Value="95"/>
+        <CursorPos X="38" Y="116"/>
+        <FoldState Value=" TL6h1 T0iUO311581212127313151]I2413]I1[O62n"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,7 +21,7 @@
         <UsageCount Value="10"/>
       </Unit1>
     </Units>
-    <JumpHistory Count="27" HistoryIndex="26">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="main.lpr"/>
         <Caret Line="427" Column="18" TopLine="38"/>
@@ -130,6 +130,10 @@
         <Filename Value="main.lpr"/>
         <Caret Line="345" Column="35" TopLine="182"/>
       </Position27>
+      <Position28>
+        <Filename Value="main.lpr"/>
+        <Caret Line="411" Column="26" TopLine="185"/>
+      </Position28>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
